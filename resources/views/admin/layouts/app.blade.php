@@ -10,6 +10,7 @@
 
 <body>
     <div class="wrapper">
+        @include('sweetalert::alert')
         @include('admin.layouts.sidebar')
         <div class="main-panel">
             @include('admin.layouts.main')

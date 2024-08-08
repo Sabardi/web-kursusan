@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('kursus', 'active')
 @section('content')
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

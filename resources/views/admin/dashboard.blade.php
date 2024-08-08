@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-
+@section('dashboard', 'active')
 @section('content')
     <div class="container">
         <div class="page-inner">

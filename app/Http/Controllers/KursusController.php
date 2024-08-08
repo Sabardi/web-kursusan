@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kursus;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KursusController extends Controller
 {
@@ -32,7 +33,8 @@ class KursusController extends Controller
         ]);
 
         Kursus::create($request->all());
-        return redirect()->route('kursus.index')->with('success', 'Data  berhasil disimpan.');
+        Alert::success('Berhasil', "kursus $request->judul berhasil dibuat");
+        return redirect()->route('kursus.index');
     }
 
     /**
@@ -65,7 +67,8 @@ class KursusController extends Controller
 
         // $kursus = Kursus::find($id);
         $id->update($request->all());
-        return redirect()->route('kursus.index')->with('success', 'Data  berhasil disimpan.');
+        Alert::success('Berhasil', "kursusan $request->judul berhasil update");
+        return redirect()->route('kursus.index');
     }
 
     /**
@@ -74,6 +77,7 @@ class KursusController extends Controller
     public function destroy(Kursus $id)
     {
         $id->delete();
-        return redirect()->route('kursus.index')->with('success', 'Data  berhasil disimpan.');
+        Alert::success('Berhasil', "kursusan berhasil hapus");
+        return redirect()->route('kursus.index');
     }
 }

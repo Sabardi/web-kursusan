@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kursus;
 use App\Models\Materi;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MateriController extends Controller
 {
@@ -39,7 +40,9 @@ class MateriController extends Controller
         ]);
 
         Materi::create($request->all());
-        return redirect()->route('materi.index')->with('success', 'Data berhasil disimpan.');
+
+        Alert::success('Berhasil', "materi $request->judul berhasil dibuat");
+        return redirect()->route('materi.index');
     }
 
     /**
@@ -73,7 +76,8 @@ class MateriController extends Controller
 
         // $kursus = Kursus::find($id);
         $id->update($request->all());
-        return redirect()->route('materi.index')->with('success', 'Data berhasil disimpan.');
+        Alert::success('Berhasil', "materi $request->judul berhasil update");
+        return redirect()->route('materi.index');
     }
 
     /**
@@ -82,6 +86,7 @@ class MateriController extends Controller
     public function destroy(Materi $id)
     {
         $id->delete();
-        return redirect()->route('materi.index')->with('success', 'Data berhasil disimpan.');
+        Alert::success('Berhasil', "materi berhasil dihapus");
+        return redirect()->route('materi.index');
     }
 }

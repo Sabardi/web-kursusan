@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('materi', 'active')
 @section('content')
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -15,8 +16,8 @@
                             <label for="jenis_kursus" class="form-label">Jenis Kursus</label>
                             <select class="form-select" id="kursus_id" name="kursus_id" required>
                                 <option value="" disabled selected>Pilih Jenis Kursus</option>
-                                @foreach ($kursus as $item)
-                                    <option value="{{ $item->id }}">{{ $item->judul }}</option>
+                                @foreach ($kursus as $i)
+                                    <option value="{{ $i->id }}">{{ $i->judul }}</option>
                                 @endforeach
                             </select>
                         </div>
