@@ -43,32 +43,25 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  href="{{ route('kursus.index') }}">
+                            <a href="{{ route('kursus.index') }}">
                                 <i class="fas fa-layer-group"></i>
                                 <p>Kursus</p>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#maps">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p>Maps</p>
-                                <span class="caret"></span>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
-                            <div class="collapse" id="maps">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="maps/googlemaps.html">
-                                            <span class="sub-item">Google Maps</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="maps/jsvectormap.html">
-                                            <span class="sub-item">Jsvectormap</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
+
+
                     </ul>
                 </div>
             </div>
